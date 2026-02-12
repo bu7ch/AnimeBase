@@ -27,19 +27,49 @@ class Anime
         $this->episodes = $episodes;
     }
 
-    public function getId(): int { return $this->id; }
-    public function getTitle(): string { return $this->title; }
-    public function getDescription(): string { return $this->description; }
-    public function getReleaseYear(): int { return $this->releaseYear; }
-    public function getEpisodes(): int { return $this->episodes; }
-    public function getGenres(): array { return $this->genres; }
+    public function getId(): int
+    {
+        return $this->id;
+    }
+    public function getTitle(): string
+    {
+        return $this->title;
+    }
+    public function getDescription(): string
+    {
+        return $this->description;
+    }
+    public function getReleaseYear(): int
+    {
+        return $this->releaseYear;
+    }
+    public function getEpisodes(): int
+    {
+        return $this->episodes;
+    }
+    public function getGenres(): array
+    {
+        return $this->genres;
+    }
 
 
 
-    public function setTitle(string $title): void { $this->title = $title; }
-    public function setDescription(string $description): void { $this->description = $description; }
-    public function setReleaseYear(int $year): void { $this->releaseYear = $year; }
-    public function setEpisodes(int $episodes): void { $this->episodes = $episodes; }
+    public function setTitle(string $title): void
+    {
+        $this->title = $title;
+    }
+    public function setDescription(string $description): void
+    {
+        $this->description = $description;
+    }
+    public function setReleaseYear(int $year): void
+    {
+        $this->releaseYear = $year;
+    }
+    public function setEpisodes(int $episodes): void
+    {
+        $this->episodes = $episodes;
+    }
 
 
     /**
@@ -78,10 +108,10 @@ class Anime
     public function __toString(): string
     {
         return sprintf(
-            "%s (%d) - %d épisodes - Studio: %s - Note: %.1f/10",
+            "%s (%d) - %d épisodes",
             $this->title,
             $this->releaseYear,
-            $this->episodes,
+            $this->episodes
         );
     }
 }

@@ -3,6 +3,9 @@
 declare(strict_types=1);
 
 
+use App\Model\Anime;
+use App\Model\Studio;
+
 class Movie extends Anime
 {
     private int $duration; // en minutes
@@ -12,10 +15,11 @@ class Movie extends Anime
         string $title,
         string $description,
         int $releaseYear,
+        Studio $studio,
         int $duration
     ) {
         // Un film n'a pas d'épisodes, on passe 0 ou null
-        parent::__construct($id, $title, $description, $releaseYear, 0);
+        parent::__construct($id, $title, $description, $releaseYear, 0, $studio);
         $this->duration = $duration;
     }
 
@@ -33,10 +37,12 @@ class Movie extends Anime
     public function __toString(): string
     {
         return sprintf(
-            "%s (%d) - %d min",
+            "%s (%d) - %d min - Studio: %s - Note: %.1f/10",
             $this->getTitle(),
             $this->getReleaseYear(),
-            $this->duration
+            $this->duration,
+            $this->getStudio()->getName(),
+            $this->getAverageRating()
         );
     }
 }
